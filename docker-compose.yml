@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  web:
+    image: medtech
+    ports:
+      - "192.168.56.1:8080:80"
+    volumes:
+      - C:\Users\Sanath S\OneDrive\Desktop\DBMS_Med:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'hospital_management'
+      #MYSQL_USER: 'root'
+      MYSQL_PASSWORD: ''
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+    ports:
+      - "3310:3310"
+    volumes:
+      - "./db:/docker-entrypoint-initdb.d" # sync 
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3310

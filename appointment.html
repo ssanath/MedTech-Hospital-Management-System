@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <title>Appointments</title>
+      </head>
+      <body>
+        <h1 class="bg-primary-subtle text-center">Appointments</h1>
+        <form class="row g-3 needs-validation" action="app_connect.php" id="AppForm" method="post" novalidate>
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">Enter the patient's ID:</label>
+                <input type="text" class="form-control" name="pid" id="validationCustom01" required>
+                <div class="invalid-feedback">
+                  Please enter a valid ID!
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Enter the date:</label>
+                <input type="date" class="form-control" name="dt" id="validationCustom02" required>
+                <div class="invalid-feedback">
+                  Please enter a valid ID!
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="validationCustom03" class="form-label">Enter the doctor's ID:</label>
+                <input type="text" class="form-control" name="did" id="validationCustom03" required>
+                <div class="invalid-feedback">
+                  Please enter a valid ID!
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="validationCustom04" class="form-label">Enter the appointment ID:</label>
+                <input type="text" class="form-control" name="appid" id="validationCustom04" required>
+                <div class="invalid-feedback">
+                  Please enter a valid ID!
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+          </form>
+          <script>
+            (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+          </script>
+</body>
